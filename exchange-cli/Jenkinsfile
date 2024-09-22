@@ -17,5 +17,17 @@ pipeline {
  }
  }
  }
+
+
+ stage ('Unit Tests') {
+ steps {
+ dir ('exchange-cli') {
+ sh "npm run test:unit"
+ }
+ }
+ }
+
+
+
  }
 }

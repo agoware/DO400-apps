@@ -13,7 +13,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                    oc start-build greeting-metrics \
+                    oc start-build greetings-metrics \
                     --follow --wait -n luca
                 '''
             }

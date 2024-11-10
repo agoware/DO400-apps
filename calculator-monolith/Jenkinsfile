@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'calculator-monolith/mvnw clean test'
+                sh 'cd calculator-monolith'
+                sh './mvnw clean test'
             }
         }
         stage('Build') {

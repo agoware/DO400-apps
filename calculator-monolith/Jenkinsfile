@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh './mvnw clean test'
+                sh 'calculator-monolith/mvnw clean test'
             }
         }
         stage('Build') {
@@ -11,10 +11,10 @@ pipeline {
                 QUAY = credentials('QUAY')
             }
             steps {
-                sh './scripts/include-container-extensions.sh'
+                sh './calculator-monolith/scripts/include-container-extensions.sh'
 
                 sh '''
-                    ./scripts/build-and-push-image.sh \
+                    calculator-monolith/scripts/build-and-push-image.sh \
                     -b $BUILD_NUMBER \
                     -u "$QUAY_USR" \
                     -p "$QUAY_PSW" \
